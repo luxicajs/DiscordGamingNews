@@ -1,6 +1,5 @@
 import Parser from "rss-parser";
 import "dotenv/config";
-import fs from "node:fs";
 const parser = new Parser();
 const ytParser = new Parser({
   customFields: {
@@ -69,7 +68,6 @@ async function checkUpdates() {
 }
 
 async function sendWs(data) {
-  console.log(data);
   await fetch(process.env.webhookURL, {
     method: "POST",
     headers: {
